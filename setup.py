@@ -19,12 +19,11 @@ setuptools.setup(
     keywords=['github'],
     packages=setuptools.find_packages(),
     include_package_data=True,
-    entry_points={"console_scripts": ["akinaka=akinaka.main:main"]},
     install_requires=[
         'PyJWT',
         'requests'
     ],
-    scripts=['ghokie.py'],
+    scripts=['ghokie-cli.py'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",

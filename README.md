@@ -37,7 +37,7 @@ print(get_access_token(
 or from the CLI:
 
 ```python
-./ghokie.py \
+./ghokie-cli.py \
   -a 'repoaccessbot' \
   -k 'location-of-private-key.pem' \
   -c 'client_id'
