@@ -19,7 +19,7 @@ You will want to generate and push new tokens around every 30 or 40 minutes, sin
 # Usage
 
 > [!NOTE]
-The `--key-is-contents` flag will make the script treat `--private-key-file` as the string contents of the PEM file, rather than a path to the file.
+The `--key-is-contents` flag will make the script treat `--private-key` as the string contents of the PEM file, rather than a path to the file.
 
 Either as a module:
 
