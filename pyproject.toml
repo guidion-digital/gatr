@@ -8,8 +8,8 @@ version = "0.0.1"
 description = "GH App Application Access token generator"
 readme = "README.md"
 authors = [{ name = "Afraz", email = "afrazo@proton.me" }]
-license = { text = "MIT" }
-dependencies = ['PyJWT', 'requests']
+license = { file = "LICENSE" }
+dependencies = ['PyJWT', 'requests', 'cryptography']
 keywords = ["Github"]
 
 [project.urls]
