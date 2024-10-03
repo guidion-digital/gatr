@@ -1,16 +1,24 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
+requires = ["setuptools >= 61.0", "setuptools_scm[toml]>=6.4.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "ghokie"
-version = "0.0.1"
+dynamic = ["version"]
 description = "GH App Application Access token generator"
 readme = "README.md"
 authors = [{ name = "Afraz", email = "afrazo@proton.me" }]
 license = { file = "LICENSE" }
 dependencies = ['PyJWT', 'requests', 'cryptography']
 keywords = ["Github"]
+requires-python = ">=3.6"
+
+# Can't be used on systems without git installed, even with a fallback command
+# [tool.setuptools_scm]
+# version_scheme = "no-guess-dev"
+# version_file = "_version.py"
+# local_scheme = "no-local-version"
+# git_describe_command = "git describe --tags --first-parent"
 
 [project.urls]
 Hompage = "https://github.com/guidion-digital/ghokie"

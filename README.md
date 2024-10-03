@@ -10,11 +10,15 @@ This is the middle part to a fully automated token refresh set up:
 1. Use this script to generate an application access token
 1. Push this new token to wherever it's needed (CI/CD?)
 
-You will want to generate and push new tokens around every 30 or 40 minutes, since they expire automatically after 60 minutes.
+You will want to generate and push new tokens around every 40 or 50 minutes, since they expire automatically after 60 minutes.
 
 # Installation
 
 `pip install git+https://github.com/guidion-digital/ghokie.git`
+
+or if you don't have `git` available on the system:
+
+`pip install https://github.com/guidion-digital/ghokie.git/archive/refs/heads/master.zip`
 
 # Usage
 
