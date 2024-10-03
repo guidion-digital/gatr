@@ -16,4 +16,4 @@ keywords = ["Github"]
 Hompage = "https://github.com/guidion-digital/ghokie"
 
 [project.scripts]
-ghokie-cli = "ghokie:scripts:ghokie_cli"
+ghokie-cli = "scripts.ghokie_cli:main"

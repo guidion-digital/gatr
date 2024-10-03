@@ -5,7 +5,8 @@ import argparse
 
 from ghokie import get_access_token
 
-if __name__ == '__main__':
+def main():
+    """ Parse arguments and call get_access_token """
     parser = argparse.ArgumentParser(
                         prog='GH App Application Access token generator',
                         description="Generate a GitHub App Access Token with your App's private key and client ID",
@@ -28,3 +29,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
     print(get_access_token(app_name, private_key, client_id, key_is_contents))
+
+if __name__ == '__main__':
+    main()
