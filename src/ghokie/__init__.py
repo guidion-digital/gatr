@@ -38,9 +38,13 @@ def get_access_token(app_name: str, private_key: str, client_id: str, key_is_con
     headers = ready_headers(private_key, key_is_contents, client_id)
     installation_id = get_installation_id(app_name, headers)
 
-    access_tokens = requests.post(
-        url = f"https://api.github.com/app/installations/{installation_id}/access_tokens",
-        headers=headers
-    ).json()
+    try:
+        response = requests.post(
+            url=f"https://api.github.com/app/installations/{installation_id}/access_tokens",
+            headers=headers
+        )
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        sys.exit(1)
 
-    return access_tokens['token']
+    return response.json['token']
