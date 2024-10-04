@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--app-name', '-a', required=False)
     parser.add_argument('--private-key', '-k', required=False)
     parser.add_argument('--client-id', '-c', required=False)
-    parser.add_argument('--key-is-contents', '-s', help="When passed --private-key is treated as the SSH key string itself, else it's a path", default=False, required=False, action='store_true')
+    parser.add_argument('--key-is-contents', '-s', help="When passed --private-key is treated as the SSH key string itself, else it's a path", required=False, action='store_true')
     args = parser.parse_args()
 
     app_name = args.app_name or os.getenv('GH_APP_NAME')

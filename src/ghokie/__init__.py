@@ -34,7 +34,7 @@ def get_installation_id(app_name: str, headers: dict) -> str:
 
     return [ installation['id'] for installation in installations if installation['app_slug'] == app_name ][0]
 
-def get_access_token(app_name: str, private_key: str, client_id: str, key_is_contents: bool) -> str:
+def get_access_token(app_name: str, private_key: str, client_id: str, key_is_contents: bool = False) -> str:
     headers = ready_headers(private_key, key_is_contents, client_id)
     installation_id = get_installation_id(app_name, headers)
 
