@@ -47,9 +47,36 @@ or from the CLI:
   -c 'client_id'
 ```
 
+`--body` (`-b`) is optional, and consists of the "body parameters" documented [here](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#create-an-installation-access-token-for-an-app--parameters):
+
+```json
+{
+  "repositories": [string],
+  "repository_ids": [string],
+  "permissions": {
+      "contents": string,
+      "metadata": string,
+      "pull_requests": string,
+      "issues": string,
+      "administration": string,
+      "checks": string,
+      "deployments": string,
+      "pages": string,
+      "actions": string,
+      "packages": string,
+      "repository_hooks": string,
+      "repository_projects": string,
+      "vulnerability_alerts": string,
+      "secrets": string,
+      "security_events": string,
+  }
+}
+```
+
 When calling from the CLI, you can instead supply the options via the environment variables:
 
 - `GH_APP_NAME`
 - `GH_PRIVATE_KEY`
 - `GH_CLIENT_ID`
 - `GH_KEY_IS_CONTENTS`
+- `GHOKIE_BODY`
