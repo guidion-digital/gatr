@@ -26,7 +26,7 @@ def ready_headers(private_key: str, key_is_contents: bool, client_id: str) -> di
         "Authorization": f"Bearer {encoded_jwt}"
     }
 
-def get_installation_id(app_name: str, headers: dict) -> str: # type: ignore
+def get_installation_id(app_name: str, organisation: str, headers: dict) -> str: # type: ignore
     """ Get the installation ID for the GitHub App """
 
     installations = requests.get(
@@ -34,7 +34,11 @@ def get_installation_id(app_name: str, headers: dict) -> str: # type: ignore
         headers=headers
     ).json()
 
-    return [ installation['id'] for installation in installations if installation['app_slug'] == app_name ][0]
+    # TODO: What do we want to do when the organisation doesn't exist?
+    org_info = next(this_org for this_org in installations if this_org['account']['login'].upper() == organisation.upper())
+    if org_info['app_slug'] == app_name:
+        return org_info['id']
+
 
 # https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#create-an-installation-access-token-for-an-app--parameters
 class AccessTokenPermissions(TypedDict):
@@ -62,6 +66,7 @@ def get_access_token(
         app_name: str,
         private_key: str,
         client_id: str,
+        organisation: str,
         key_is_contents: bool = False,
         body: AccessTokenBody = AccessTokenBody()
     ) -> str:
@@ -71,7 +76,7 @@ def get_access_token(
     """
 
     headers = ready_headers(private_key, key_is_contents, client_id)
-    installation_id = get_installation_id(app_name, headers)
+    installation_id = get_installation_id(app_name, organisation, headers)
 
     try:
         response = requests.post(

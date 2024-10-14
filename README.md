@@ -35,7 +35,8 @@ from ghokie import get_access_token
 print(get_access_token(
   app_name='repoaccessbot',
   private_key='location-of-private-key.pem',
-  client_id='client_id'))
+  client_id='client_id'),
+  organisation='gh_org_name')
 ```
 
 or from the CLI:
@@ -44,7 +45,8 @@ or from the CLI:
 ./ghokie-cli \
   -a 'repoaccessbot' \
   -k 'location-of-private-key.pem' \
-  -c 'client_id'
+  -c 'client_id' \
+  -o 'github_org_name'
 ```
 
 `--body` (`-b`) is optional, and consists of the "body parameters" documented [here](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#create-an-installation-access-token-for-an-app--parameters):
@@ -78,5 +80,6 @@ When calling from the CLI, you can instead supply the options via the environmen
 - `GH_APP_NAME`
 - `GH_PRIVATE_KEY`
 - `GH_CLIENT_ID`
+- `GH_ORGANISATION`
 - `GH_KEY_IS_CONTENTS`
 - `GHOKIE_BODY`
