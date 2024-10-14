@@ -85,7 +85,7 @@ def get_access_token(
 
     response_json = response.json()
 
-    if response.status_code != 200:
+    if response.status_code not in range(200, 299):
         print(f"An error occurred: {response_json}")
         sys.exit(1)
 
