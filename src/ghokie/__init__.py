@@ -79,14 +79,11 @@ def get_access_token(
             json=body,
             headers=headers
         )
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
+    except requests.exceptions.RequestException:
+        print(f"An error occurred whilst generating the access token. For security reason's I can not show it to you")
+        sys.exit(1)
+    if not response.ok:
+        print(f"Got a non-2xx status code whilst generating the access token. For security reason's I can not show you the response")
         sys.exit(1)
 
-    response_json = response.json()
-
-    if response.status_code not in range(200, 299):
-        print(f"An error occurred: {response_json}")
-        sys.exit(1)
-
-    return response_json['token']
+    return response.json()['token']
