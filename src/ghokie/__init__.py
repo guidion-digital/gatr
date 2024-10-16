@@ -2,7 +2,7 @@ import time
 import requests
 import jwt
 import sys
-from typing import TypedDict, NotRequired
+from typing import TypedDict, NotRequired, Union
 
 def ready_headers(private_key: str, key_is_contents: bool, client_id: str) -> dict: # type: ignore
     """ Use the private key and client_id to create necessary headers """
@@ -68,7 +68,7 @@ def get_access_token(
         client_id: str,
         organisation: str,
         key_is_contents: bool = False,
-        body: AccessTokenBody = AccessTokenBody()
+        body: Union[AccessTokenBody, None] = AccessTokenBody()
     ) -> str:
     """
     Return an access token based on parameters in <body: AccessTokenPermissions>
