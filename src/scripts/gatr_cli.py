@@ -4,7 +4,7 @@ import os
 import argparse
 import json
 
-from ghokie import get_access_token
+from gatr import get_access_token
 
 def main():
     """ Parse arguments and call get_access_token """
@@ -27,7 +27,7 @@ def main():
     client_id = args.client_id or os.getenv('GH_CLIENT_ID')
     organisation = args.organisation or os.getenv('GH_ORGANISATION')
     key_is_contents = args.key_is_contents or os.getenv('GH_KEY_IS_CONTENTS') != None
-    body = json.loads(args.body or os.getenv('GHOKIE_BODY', '{}'))
+    body = json.loads(args.body or os.getenv('GATR_BODY', '{}'))
 
     if not app_name or not private_key or not client_id or not organisation:
         print("Please provide all the required arguments or set the environment variables")

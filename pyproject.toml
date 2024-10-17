@@ -3,9 +3,9 @@ requires = ["setuptools >= 61.0", "setuptools_scm[toml]>=6.4.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ghokie"
+name = "gatr"
 dynamic = ["version"]
-description = "GH App Application Access token generator"
+description = "GH-App Application Access Token Rotator"
 readme = "README.md"
 authors = [{ name = "Afraz", email = "afrazo@proton.me" }]
 license = { file = "LICENSE" }
@@ -21,7 +21,7 @@ requires-python = ">=3.6"
 # git_describe_command = "git describe --tags --first-parent"
 
 [project.urls]
-Hompage = "https://github.com/guidion-digital/ghokie"
+Hompage = "https://github.com/guidion-digital/gatr"
 
 [project.scripts]
-ghokie-cli = "scripts.ghokie_cli:main"
+gatr-cli = "scripts.gatr_cli:main"
