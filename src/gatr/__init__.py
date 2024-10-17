@@ -3,6 +3,7 @@ import requests
 import jwt
 import sys
 from typing import TypedDict, NotRequired, Union
+from .exceptions import GATRError
 
 def ready_headers(private_key: str, key_is_contents: bool, client_id: str) -> dict: # type: ignore
     """ Use the private key and client_id to create necessary headers """
@@ -88,7 +89,6 @@ def get_access_token(
         print(f"An error occurred whilst generating the access token. For security reason's I can not show it to you")
         sys.exit(1)
     if not response.ok:
-        print(f"Got a non-2xx status code whilst generating the access token. For security reason's I can not show you the response")
-        sys.exit(1)
+        raise GATRError(f"Got a non-2xx status code whilst generating the access token. For security reason's I can not show you the response")
 
     return response.json()['token']
